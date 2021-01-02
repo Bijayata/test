@@ -1,0 +1,41 @@
+def sinup(request):
+    if request.method == 'POST':
+        username = request.POST['uname']
+        first_name = request.POST['fname']
+        lastname = request.POST['lname']
+        email = request.POST['email']
+        password = request.POST['pass']
+
+        x = User.objects.create_user(username=username, first_name=first_name, last_name=lastname, email=email,
+                                     password=password),
+        # if x is not None:
+        #     auth.login(request,x)
+        #     return redirect('/')
+        # else:
+        #     return redirect('login')
+
+        print('user created')
+
+        return redirect('/')
+        # return render(request, 'b.html')
+
+    else:
+
+        return render(request, 'reg.html')
+
+def login(request):
+    if request.method == 'POST':
+        username1 = request.POST['user']
+        pas = request.POST['pass']
+
+        x = auth.authenticate(username=username1, password=pas)
+        if x is not None:
+            auth.login(request, x)
+            return redirect('/')
+        else:
+            return redirect('login')
+
+            # print('good')
+
+    else:
+        return render(request, 'login.html')

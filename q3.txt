@@ -1,0 +1,7 @@
+data = '11110000111110000011111010101010101011111111'
+>>> def Max_len(data):
+	print ("output for the above array would be ",max(map(len,data.split('0'))) )
+
+	
+>>> Max_len(data)
+("output for the above array would be ", 8)

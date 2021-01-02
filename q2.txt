@@ -1,0 +1,5 @@
+Dict1= {'1' : 'name1','2' : 'name2','3':'name3'}
+Dict2={'1' : '50','2' : '60','3':'70'}
+res={}
+res=max(Dict2.items(), key=lambda k: k[1])
+print res
